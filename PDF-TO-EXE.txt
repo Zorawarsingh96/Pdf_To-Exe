@@ -1,0 +1,52 @@
+1	Excel: Open Spreadsheet "D:\Proect\AAE11\ashutosh.singh@solicon.co.in\ashutosh.singh@solicon.co.in_Bot_3_Output.xlsx". ActiveSheet: "Default". Session: Default
+2	Excel: Go to cell "A2". Session: Default
+3	Start Loop "Each File In Folder D:\Proect\AAE11\Invoices"
+4	     Begin Error Handling; Action: Continue; Options: Take Snapshot,  Task Status: Fail
+5	          PDF Integration: Extract Form Fields from "D:\Proect\AAE11\Invoices\$FileName$.pdf"
+6	          String Operation: Split "$InLineTotal$" with delimiter "[ENTER]" and assign output to $InListLineTotal$
+7	          String Operation: Split "$InDescription$" with delimiter "[ENTER]" and assign output to $InDescriptionList$
+8	          String Operation: Split "$InQuality$" with delimiter "[ENTER]" and assign output to $InQuantityList$
+9	          String Operation: Split "$InUnitPrice$" with delimiter "[ENTER]" and assign output to $InUnitPriceList$
+10	          Start Loop "List Variable $InListLineTotal$" 
+11	               String Operation: Trim "$InListLineTotal$" and assign output to $InLineTotal$
+12	               String Operation: Trim "$InDescriptionList$" and assign output to $InDescription$
+13	               String Operation: Trim "$InQuantityList$" and assign output to $InQuality$
+14	               String Operation: Trim "$InUnitPriceList$" and assign output to $InUnitPrice$
+15	               If $InDueDate$ Greater Than(>) "1-Apr-2019" OR $InPayementTerm$ Equal To (=) "Due on Receipt " Then
+16	                    If $InUnitPrice$ Greater than or Equal To(>=) "2" Then  
+17	                         If $InLineTotal$ Greater than or Equal To(>=) "100" Then  
+18	                              If $InQuality$ Greater than or Equal To(>=) "2" Then  
+19	                                   Excel: Set value of Active Cell with "$InCompany$". Session: Default
+20	                                   Excel: Go to one cell right of active cell. Session: Default
+21	                                   Excel: Set value of Active Cell with "$InInvoiceDate$". Session: Default
+22	                                   Excel: Go to one cell right of active cell. Session: Default
+23	                                   Excel: Set value of Active Cell with "$InInvoiceNo$". Session: Default
+24	                                   Excel: Go to one cell right of active cell. Session: Default
+25	                                   Excel: Set value of Active Cell with "$InSalesperson$". Session: Default
+26	                                   Excel: Go to one cell right of active cell. Session: Default
+27	                                   Excel: Set value of Active Cell with "$InJob$". Session: Default
+28	                                   Excel: Go to one cell right of active cell. Session: Default
+29	                                   Excel: Set value of Active Cell with "$InPayementTerm$". Session: Default
+30	                                   Excel: Go to one cell right of active cell. Session: Default
+31	                                   Excel: Set value of Active Cell with "$InDueDate$". Session: Default
+32	                                   Excel: Go to one cell right of active cell. Session: Default
+33	                                   Excel: Set value of Active Cell with "$InQuality$". Session: Default
+34	                                   Excel: Go to one cell right of active cell. Session: Default
+35	                                   Excel: Set value of Active Cell with "$InDescription$". Session: Default
+36	                                   Excel: Go to one cell right of active cell. Session: Default
+37	                                   Excel: Set value of Active Cell with "$InUnitPrice$". Session: Default
+38	                                   Excel: Go to one cell right of active cell. Session: Default
+39	                                   Excel: Set value of Active Cell with "$InLineTotal$". Session: Default
+40	                                   Excel: Go to one cell right of active cell. Session: Default
+41	                                   Excel: Go to one cell below the active cell. Session: Default
+42	                                   Excel: Go to beginning of the row of the active cell. Session: Default
+43	                              End If
+44	                         End If
+45	                    End If
+46	               End If
+47	          End Loop
+48	     End Error Handling
+49	End Loop
+50	Excel: Save Spreadsheet. Session: Default
+51	Excel: Close Spreadsheet. Session: Default
+52	Rename Files "D:\Proect\AAE11\Granuality Analysis\ashutosh.singh@solicon.co.in_Bot_3_Output.xlsx" to "ashutosh.singh@solicon.co.in_Bot_3_Output.xlsx"  
